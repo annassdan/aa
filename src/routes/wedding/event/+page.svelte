@@ -97,9 +97,22 @@
         delete user.title;
         delete user.coverName;
 
-        await setDoc(doc(collection(db, "invited_guests"), $authStore.user.id), {
+        let u = await setDoc(doc(collection(db, "invited_guests"), $authStore.user.id), {
             ...user
         });
+
+
+        const docRef = doc(db, "invited_guests", $authStore.user.id ? $authStore.user.id : 'Default');
+        const docSnap = await getDoc(docRef);
+        if (docSnap.data()) {
+            authStore.update(u => ({
+                ...u,
+                user: {
+                    ...u.user,
+                    ...docSnap.data()
+                }
+            }));
+        }
 
         loadingUpdateRsvp = false;
     }
@@ -133,24 +146,28 @@
                            placeholder="Jumlah kehadiran...">
                 </div>
                 <div class="flex flex-row justify-end w-full gap-2 pt-1 pb-2">
-                    <a href="#"
-                       class="w-fit rounded-full justify-center text-sm text-center text-white bg-gray-500 hover:bg-pink-800  focus:ring-4 focus:outline-none focus:ring-pink-300 ">
-                        <div class="flex mt-2 flex-col  items-center px-2">
-                            <span class="icon-[fluent--print-28-filled] w-5 h-5"></span>
-                        </div>
-                    </a>
+                    <div class="flex flex-row gap-2">
+                        {#if $authStore.user.attend}
+                            <a href="#"
+                               class="w-fit rounded-full justify-center text-sm text-center text-white bg-gray-500 hover:bg-pink-800  focus:ring-4 focus:outline-none focus:ring-pink-300 ">
+                                <div class="flex mt-2 flex-col  items-center px-2">
+                                    <span class="icon-[fluent--print-28-filled] w-5 h-5"></span>
+                                </div>
+                            </a>
+                        {/if}
 
-                    <a href="#" on:click={updateRsvp}
-                       class="w-32 items-center pl-3 w-full pr-4 py-2 text-sm text-center text-white bg-wedding-500 hover:bg-wedding-600 rounded-lg  focus:ring-4 focus:outline-none focus:ring-wedding-300 ">
-                        <div class="flex flex-row gap-2 justify-between">
-                            <span>Konfirmasi</span>
-                            {#if loadingUpdateRsvp}
-                                <span class="icon-[line-md--loading-twotone-loop] w-5 h-5"></span>
-                            {:else}
-                                <span class="icon-[line-md--circle-filled-to-confirm-circle-filled-transition] w-5 h-5"></span>
-                            {/if}
-                        </div>
-                    </a>
+                        <a href="#" on:click={updateRsvp}
+                           class="w-32 items-center pl-3 w-full pr-4 py-2 text-sm text-center text-white bg-wedding-500 hover:bg-wedding-600 rounded-lg  focus:ring-4 focus:outline-none focus:ring-wedding-300 ">
+                            <div class="flex flex-row gap-2 justify-between">
+                                <span>Konfirmasi</span>
+                                {#if loadingUpdateRsvp}
+                                    <span class="icon-[line-md--loading-twotone-loop] w-5 h-5"></span>
+                                {:else}
+                                    <span class="icon-[line-md--circle-filled-to-confirm-circle-filled-transition] w-5 h-5"></span>
+                                {/if}
+                            </div>
+                        </a>
+                    </div>
 
                 </div>
 
