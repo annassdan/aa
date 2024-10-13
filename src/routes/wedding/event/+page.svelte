@@ -36,7 +36,7 @@
                 <span class="font-bold">Pukul 09.00 WIB</span>
             </div>
             <div class="flex w-fit mt-2">
-                <a href="#"
+                <a href="https://maps.app.goo.gl/k6Sfd63ZyJEVqdeS9" target="_blank"
                    class="items-center pl-3 pr-4 py-2 text-sm text-center text-white bg-wedding-500 hover:bg-wedding-600 rounded-lg  focus:ring-4 focus:outline-none focus:ring-wedding-300 ">
                     <div class="flex flex-row gap-2">
                         <span>KUA Gayungan Surabaya</span>
@@ -82,7 +82,7 @@
                 <span class="font-bold">Pukul 15.30 - 17.30 WIB</span>
             </div>
             <div class="flex w-fit mt-2">
-                <a href="#"
+                <a href="https://maps.app.goo.gl/HBcM9kEkVi8YqMXVA" target="_blank"
                    class="items-center pl-3 pr-4 py-2 text-sm text-center text-white bg-wedding-500 hover:bg-wedding-600 rounded-lg hover:bg-wedding-00 focus:ring-4 focus:outline-none focus:ring-wedding-300 ">
                     <div class="flex flex-row gap-2">
                         <span>Agis Restaurant Surabaya</span>

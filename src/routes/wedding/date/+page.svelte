@@ -39,6 +39,17 @@
             timeLeft = {days: 0, hours: 0, minutes: 0, seconds: 0};
         }
     }
+    
+    
+    function addToCalendar() {
+        let title = "Resepsi Pernikahan Anis & Annas";
+        let location = "Surabaya";
+        let description = "Resepsi Pernikahan Anis & Annas";
+        let startDate = "2024-10-28T15:30:00"; // Use ISO 8601 format
+        let endDate = "2024-10-28T17:30:00";
+
+        return `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startDate.replace(/-|:/g, '')}/${endDate.replace(/-|:/g, '')}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&sf=true&output=xml`;
+    }
 </script>
 
 <div class="flex flex-col  items-center h-full bg-gradient-to-t from-wedding-200 to-pink-100">
@@ -72,7 +83,7 @@
         </div>
 
 
-        <a href="#" class="bottom-[2%] focus:outline-none mt-1 text-white bg-wedding-700 hover:bg-wedding-800 focus:ring-4 focus:ring-wedding-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-wedding-600 dark:hover:bg-wedding-700 dark:focus:ring-wedding-800">
+        <a href={addToCalendar()} target="_blank" class="bottom-[2%] focus:outline-none mt-1 text-white bg-wedding-700 hover:bg-wedding-800 focus:ring-4 focus:ring-wedding-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-wedding-600 dark:hover:bg-wedding-700 dark:focus:ring-wedding-800">
             <div class="flex flex-row items-center gap-2">
                 Tambahkan ke kalender
                 <span class="icon-[stash--calendar-solid] w-5 h-5"></span>
