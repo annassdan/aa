@@ -127,7 +127,7 @@
             <div class="flex flex-col justify-center items-start gap-2 pr-2 w-full">
                 <span class="font-bold text-lg">Konfirmasi kehadiran</span>
                 <div class="flex flex-row items-center gap-3 mt-3">
-                    <span class="icon-[icon-park-solid--people-left] w-11 h-6"></span>
+                    <span class="icon-[icon-park-solid--people] w-11 h-6"></span>
                     <span>{$authStore.user.name}</span>
                 </div>
                 <div class="flex flex-row items-center gap-3">
