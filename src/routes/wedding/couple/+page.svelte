@@ -4,6 +4,9 @@
     import {db} from "$lib/firebase";
     import { page } from '$app/stores';
     import {authStore} from "../../../store/store.js";
+    import { fade, scale, slide, fly, blur } from "svelte/transition"
+    import { flip } from "svelte/animate"
+    import { goto } from "$app/navigation"
 
     // Get the current path
     let currentPath;
@@ -16,7 +19,7 @@
 
 </script>
 
-<div class="flex flex-col items-center h-full bg-gradient-to-t from-wedding-200 to-pink-100 text-wedding-600 gap-5 text-sm">
+<div in:slide={{duration: 500, delay: 300 }} out:blur={{duration: 300}} class="flex flex-col items-center h-full bg-gradient-to-t from-wedding-200 to-pink-100 text-wedding-600 gap-5 text-sm">
     <div class=" w-full flex flex-col items-center mt-2 gap-1 px-4 ">
         <img src="../bismillah.png" alt="Bismillah" class="w-[40%]"/>
         <div class="text-center">

@@ -4,6 +4,9 @@
     import {db} from "$lib/firebase";
     import {page} from '$app/stores';
     import {authStore} from "../../../store/store.js";
+    import { fade, scale, slide, fly, blur } from "svelte/transition"
+    import { flip } from "svelte/animate"
+    import { goto } from "$app/navigation"
 
     // Get the current path
     let currentPath;
@@ -43,6 +46,10 @@
 
 
     async function addComment() {
+        if (!$authStore.user.id) {
+            return
+        }
+
         await addDoc(collection(db, "comments"), {
             name: $authStore.user.name,
             wish: value
@@ -52,7 +59,7 @@
 
 </script>
 
-<div class="relative px-4 pt-6 pb-24 flex flex-col items-center h-full bg-gradient-to-b from-wedding-200 to-white text-wedding-600 gap-3 text-sm">
+<div in:slide={{duration: 500, delay: 300 }} out:blur={{duration: 300}} class="relative px-4 pt-6 pb-24 flex flex-col items-center h-full bg-gradient-to-b from-wedding-200 to-white text-wedding-600 gap-3 text-sm">
     <img src="../flower2-left-top.png" alt="Flower Right" class="absolute left-0 top-9 w-[55%] "/>
 
     <div class="flex flex-row items-center justify-between text-pink-700 z-10 w-full sticky">

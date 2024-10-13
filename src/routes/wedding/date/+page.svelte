@@ -4,6 +4,9 @@
     import {db} from "$lib/firebase";
     import { page } from '$app/stores';
     import {authStore} from "../../../store/store.js";
+    import { fade, scale, slide, fly, blur } from "svelte/transition"
+    import { flip } from "svelte/animate"
+    import { goto } from "$app/navigation"
 
     // Get the current path
     let currentPath;
@@ -52,13 +55,12 @@
     }
 </script>
 
-<div class="flex flex-col  items-center h-full bg-gradient-to-t from-wedding-200 to-pink-100">
+<div in:slide={{duration: 500 }} out:blur={{duration: 300}} class="flex flex-col  items-center h-full bg-gradient-to-t from-wedding-200 to-pink-100">
     <img src="../flower-top-left.png" alt="Flower Left" class="absolute left-0 top-0 w-[35%] "/>
     <img src="../flower-top-right.png" alt="Flower Right" class="absolute right-0 top-[50%] w-[35%]"/>
     <img src="../aa.png" alt="Anis Annas" class="w-[35%] mt-[7%]"/>
     <span class=" text-xl text-wedding-600 pt-4 font-bold">Pernikahan</span>
     <span class="font-lobster font-bold text-4xl text-wedding-600 mt-3 z-10">Anis & Annas</span>
-
 
     <div class="absolute w-full flex flex-col bottom-24 px-6 gap-3 items-center z-10">
         <span class="text-wedding-600 text-lg  bottom-[10%] font-bold">Senin, 28 Oktober 2024</span>

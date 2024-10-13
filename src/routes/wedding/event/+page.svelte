@@ -6,6 +6,9 @@
     import {authStore} from "../../../store/store.js";
     import Qris from "../../../components/Qris.svelte";
     import QRCode from "@castlenine/svelte-qrcode";
+    import { fade, scale, slide, fly, blur } from "svelte/transition"
+    import { flip } from "svelte/animate"
+    import { goto } from "$app/navigation"
 
     // Get the current path
     let currentPath;
@@ -118,7 +121,7 @@
     }
 </script>
 
-<div class=" relative px-5 pt-4 flex flex-col items-center h-full bg-gradient-to-b from-wedding-200 to-pink-100 text-wedding-600 gap-5 text-sm">
+<div in:slide={{duration: 500, delay: 300 }} out:blur={{duration: 300}} class=" relative px-5 pt-4 flex flex-col items-center h-full bg-gradient-to-b from-wedding-200 to-pink-100 text-wedding-600 gap-5 text-sm">
     {#if showRsvp}
         <div on:click={closeRsvp}
              class="absolute flex flex-col p-3 border border-gray-300 z-40 top-0 opacity-80 bg-gray-700  w-full h-full">

@@ -5,6 +5,7 @@
     import {db} from "$lib/firebase";
     import {page} from '$app/stores';
     import {authStore} from "../store/store.js";
+    import { fade, scale, slide } from "svelte/transition"
 
     $: ref = $page.url.searchParams.get('ref');
     $: currentPath = $page.url.pathname;
@@ -74,7 +75,7 @@
 
 <div class="relative w-full h-full relative text-md font-catamaran ">
     {#if $authStore.loading}
-        <div class="absolute w-full h-full bg-gradient-to-b from-wedding-200 to-pink-100 flex flex-col justify-center items-center" style="z-index: 999">
+        <div out:fade={{duration: 400}} class="absolute w-full h-full bg-gradient-to-b from-wedding-200 to-pink-100 flex flex-col justify-center items-center" style="z-index: 999">
             <span class="font-lobster font-bold text-4xl text-pink-600 py-6">Anis & Annas</span>
             <span class="icon-[line-md--loading-loop] w-10 h-10 text-pink-700"></span>
         </div>

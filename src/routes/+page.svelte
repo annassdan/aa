@@ -1,16 +1,25 @@
 <script>
     import {authStore} from "../store/store.js";
+    import { fade, scale, slide } from "svelte/transition"
+    import { flip } from "svelte/animate"
+    import { goto } from "$app/navigation"
+
+    function openInvite() {
+        goto('/wedding/date');
+
+    }
+
 </script>
 
-<div class="relative flex px-3 flex-col justify-center items-center h-full bg-gradient-to-b from-wedding-200 to-pink-100 pb-10">
+<div out:slide={{duration: 1000 }} class="relative flex px-3 flex-col justify-center items-center h-full bg-gradient-to-b from-wedding-200 to-pink-100 pb-10">
 
 
-    <img src="aa.png" alt="Anis Annas" class="w-[39%] max-w-80"/>
+    <img  src="aa.png" alt="Anis Annas" class="w-[39%] max-w-80"/>
     <span class=" text-xl text-wedding-600 pt-4 font-bold">Pernikahan</span>
     <span class="font-lobster font-bold text-4xl text-pink-600 py-6">Anis & Annas</span>
     <span class=" text-wedding-600 pt-2 ">{$authStore.user.title}</span>
     <span class=" text-wedding-600 font-bold -mt-1">{$authStore.user.coverName}</span>
-    <a href="/wedding/date"
+    <a href="/wedding/date" on:click={openInvite}
        class="mt-6 focus:outline-none text-white bg-wedding-700 hover:bg-wedding-800 focus:ring-4 focus:ring-wedding-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-wedding-600 dark:hover:bg-wedding-700 dark:focus:ring-wedding-800">
         <div class="flex flex-row items-center gap-2">
             Buka Undangan
