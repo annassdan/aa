@@ -3,9 +3,17 @@ import {writable} from "svelte/store";
 export const authStore = writable({
     currentPath: '',
     group: true,
+    loading: true,
     user: {
         id: '',
-        name: ''
+        name: '',
+        grup: false,
+        attend: false,
+        many: 0,
+        address: '',
+        guest_name_cover: '',
+        title: 'Kepada Bapak/Ibu/Saudara/i',
+        coverName: 'Tamu Undangan'
     },
     qris: {
         id: import.meta.env.VITE_SAWERIA_USER_ID,
