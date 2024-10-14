@@ -100,7 +100,6 @@
             // const response = await fetch(`/api/donations/${$authStore.qris.id}`, {
             const response = await fetch(`https://asia-southeast2-annisannas-559d5.cloudfunctions.net/saweria?id=${$authStore.qris.id}`, {
                 method: 'POST',
-                mode: 'cors',
                 body: JSON.stringify(body),
                 headers: {
                     'Content-type': 'application/json',
