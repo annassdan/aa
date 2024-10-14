@@ -48,7 +48,7 @@
         if (docSnap.data() && ref && ref !== null) {
             const user = docSnap.data();
             if (user.grup) {
-                to = 'Kepada Bapak/Ibu/Saudara/i';
+                to = 'Keluarga Besar';
             } else {
                 to = 'Kepada';
             }

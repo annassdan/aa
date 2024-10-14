@@ -62,7 +62,7 @@
 <div in:blur={{duration: 300, delay: 300 }} out:slide={{duration: 300}} class="flex flex-col  items-center h-full bg-gradient-to-t from-wedding-200 to-pink-100">
     <img src="../flower-top-left.png" alt="Flower Left" class="absolute left-0 top-0 w-[35%]  "/>
     <img src="../flower-top-right.png" alt="Flower Right" class="absolute right-0 top-[50%] w-[35%]"/>
-    <img src="../aa.png" alt="Anis Annas" class="w-[35%] mt-[7%] max-w-80"/>
+    <img src="../aa.png" alt="Anis Annas" class="w-[35%] mt-[7%] max-w-60"/>
     <span class=" text-xl text-wedding-600 pt-4 font-bold">Pernikahan</span>
     <span class="font-lobster font-bold text-4xl text-wedding-600 mt-3 z-10">Anis & Annas</span>
 

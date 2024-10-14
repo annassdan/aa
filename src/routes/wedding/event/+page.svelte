@@ -190,7 +190,7 @@
 
                     {#if showGreeting && $authStore.user.attend}
                         <div in:blur out:slide class="justify-center items-center mt-4 mb-1 w-full flex flex-row gap-2 text-xs text-pink-800" >
-                            <span class="font-bold">Terima kasih atas kesempatannya</span>
+                            <span class="font-bold">Terima kasih atas kedatangannya</span>
                             <span class="icon-[fluent-emoji--party-popper] w-6 h-6"></span>
                             <span class="icon-[fluent-emoji-flat--partying-face] w-6 h-6"></span>
                         </div>
