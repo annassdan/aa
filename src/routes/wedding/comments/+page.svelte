@@ -46,7 +46,7 @@
 
 
     async function addComment() {
-        if (!$authStore.user.id) {
+        if (!$authStore.user.id || value.trim().length === 0) {
             return
         }
 

@@ -24,7 +24,7 @@
             $authStore.loading = false;
         }
 
-        if (currentPath !== '/' && (localStorage.getItem('guest') === null) || localStorage.getItem('guest') === undefined) {
+        if ((currentPath !== '/' && currentPath !== '/kinkin') && (localStorage.getItem('guest') === null) || localStorage.getItem('guest') === undefined) {
             await goto('/');
         }
     });
