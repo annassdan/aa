@@ -60,9 +60,9 @@
 </script>
 
 <div in:slide={{duration: 500, delay: 300 }} out:blur={{duration: 300}} class="relative px-4 pt-6 pb-24 flex flex-col items-center h-full bg-gradient-to-b from-wedding-200 to-white text-wedding-600 gap-3 text-sm">
-    <img src="../flower2-left-top.png" alt="Flower Right" class="absolute left-0 top-9 w-[55%] "/>
+    <img src="../flower2-left-top.png" alt="Flower Right" class="absolute left-0 top-9 w-[55%] max-w-80 "/>
 
-    <div class="flex flex-row items-center justify-between text-pink-700 z-10 w-full sticky">
+    <div class="flex  max-w-[50rem] flex-row items-center justify-between text-pink-700 z-10 w-full sticky">
         <div class="flex gap-2 items-start w-full text-wedding-500">
             <span class="icon-[solar--chat-round-dots-bold] w-12 h-12"></span>
 
@@ -92,7 +92,7 @@
         </div>
     </div>
 
-    <div class="flex flex-col w-full text-gray-600 gap-1 z-10">
+    <div class="flex  max-w-[50rem] flex-col w-full text-gray-600 gap-1 z-10">
         {#each comments as comment, i}
             <div class="flex flex-col w-full text-gray-600 z-10">
                 <div class="flex flex-row gap-5">

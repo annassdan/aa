@@ -124,9 +124,9 @@
 <div in:slide={{duration: 500, delay: 300 }} out:blur={{duration: 300}} class=" relative px-5 pt-4 flex flex-col items-center h-full bg-gradient-to-b from-wedding-200 to-pink-100 text-wedding-600 gap-5 text-sm">
     {#if showRsvp}
         <div on:click={closeRsvp}
-             class="absolute flex flex-col p-3 border border-gray-300 z-40 top-0 opacity-80 bg-gray-700  w-full h-full">
+             class="absolute flex flex-col p-3 border border-gray-300 z-40 top-0 opacity-80 bg-gray-700  w-full h-full ">
         </div>
-        <div class="absolute flex flex-col py-3 right-10 left-10  gap-3 px-4 py-3 items-center rounded-xl border border-gray-300 z-50 top-0 bg-gray-100 top-[10%] ">
+        <div class="absolute flex flex-col max-w-[50rem] self-center py-3 w-[80%] gap-3 px-4 items-center rounded-xl border border-gray-300 z-50 top-0 bg-gray-100 top-[10%] ">
             <div class="flex flex-col justify-center items-start gap-2 pr-2 w-full">
                 <span class="font-bold text-lg">Konfirmasi kehadiran</span>
                 <div class="flex flex-row items-center gap-3 mt-3">
@@ -179,7 +179,7 @@
         </div>
     {/if}
 
-    <div class="relative w-full pt-4 pb-3 px-3 bg-wedding-100  border border-wedding-200 rounded-lg  flex gap-3 flex-col ">
+    <div class="relative max-w-[50rem] w-full pt-4 pb-3 px-3 bg-wedding-100  border border-wedding-200 rounded-lg  flex gap-3 flex-col ">
         <div class="flex flex-row items-center justify-between  text-pink-700">
             <div class="flex gap-1 items-center">
                 <span class="icon-[mdi--ring] w-8 h-8 "></span>
@@ -214,7 +214,7 @@
 
     </div>
 
-    <div class="relative w-full pt-4 pb-3 px-3 bg-wedding-100 border border-wedding-200 rounded-lg  flex gap-3 flex-col ">
+    <div class="relative max-w-[50rem] w-full pt-4 pb-3 px-3 bg-wedding-100 border border-wedding-200 rounded-lg  flex gap-3 flex-col ">
         <div class="flex flex-row items-center justify-between text-pink-700 z-10">
             <div class="flex gap-1 items-center">
                 <span class="icon-[mdi--event-heart] w-8 h-8"></span>
@@ -240,7 +240,7 @@
             </div>
 
         </div>
-        <div class=" flex flex-col gap-1 text-wedding-500 ml-1 z-10">
+        <div class=" flex flex-col  gap-1 text-wedding-500 ml-1 z-10">
             <div class="flex flex-row items-center gap-2">
                 <span class="icon-[stash--calendar-solid] w-6 h-6"></span>
                 <span class="font-bold">Senin, 28 Oktober 2024</span>
@@ -263,7 +263,7 @@
 
 
     </div>
-    <div class="flex flex-col  text-center my-1 text-wrap z-10">
+    <div class="flex flex-col max-w-[50rem] text-center my-1 text-wrap z-10">
         <span class="text-wrap leading-snug font-bold">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗاِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</span>
         <span class="text-wrap leading-snug mt-3">
             “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir. “
