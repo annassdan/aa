@@ -3,7 +3,11 @@
     import {authStore} from "../../store/store.js";
     import { fade, scale, slide } from "svelte/transition"
     import { flip } from "svelte/animate"
-    import { goto } from "$app/navigation"
+    import { goto } from "$app/navigation";
+    import {onMount} from "svelte";
+
+    onMount(() => {
+    })
 
     function go(link) {
         goto(link);
@@ -19,10 +23,10 @@
                 <a href="/"  class="hover:bg-wedding-800 focus:ring-4 focus:outline-none focus:ring-wedding-300 w-10 h-10 flex items-center justify-center rounded-full {$authStore.currentPath === '/wedding/date' ? 'bg-wedding-800' : 'bg-wedding-400'}" >
                     <span class="icon-[mage--home-3-fill] text-white w-5 h-5"></span>
                 </a>
-                <a href="#" on:click={() => go('/wedding/couple')} class="hover:bg-wedding-800 focus:ring-4 focus:outline-none focus:ring-wedding-300 w-10 h-10 flex items-center justify-center rounded-full {$authStore.currentPath === '/wedding/couple' ? 'bg-wedding-800' : 'bg-wedding-400'}">
+                <a href="/wedding/couple"  class="hover:bg-wedding-800 focus:ring-4 focus:outline-none focus:ring-wedding-300 w-10 h-10 flex items-center justify-center rounded-full {$authStore.currentPath === '/wedding/couple' ? 'bg-wedding-800' : 'bg-wedding-400'}">
                     <span class="icon-[mingcute--love-fill] text-white w-5 h-5"></span>
                 </a>
-                <a href="#" on:click={() => go('/wedding/event')} class="hover:bg-wedding-800 focus:ring-4 focus:outline-none focus:ring-wedding-300 w-10 h-10 flex items-center justify-center rounded-full {$authStore.currentPath === '/wedding/event' ? 'bg-wedding-800' : 'bg-wedding-400'}">
+                <a href="/wedding/event"  class="hover:bg-wedding-800 focus:ring-4 focus:outline-none focus:ring-wedding-300 w-10 h-10 flex items-center justify-center rounded-full {$authStore.currentPath === '/wedding/event' ? 'bg-wedding-800' : 'bg-wedding-400'}">
                     <span class="icon-[material-symbols-light--event-note-rounded] text-white w-5 h-5"></span>
                 </a>
                 <a href="/wedding/gift" class="hover:bg-wedding-800 focus:ring-4 focus:outline-none focus:ring-wedding-300 w-10 h-10 flex items-center justify-center rounded-full {$authStore.currentPath === '/wedding/gift' ? 'bg-wedding-800' : 'bg-wedding-400'}">

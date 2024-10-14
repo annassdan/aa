@@ -6,6 +6,7 @@
     import {page} from '$app/stores';
     import {authStore} from "../store/store.js";
     import { fade, scale, slide } from "svelte/transition"
+    import {goto} from "$app/navigation";
 
     $: ref = $page.url.searchParams.get('ref');
     $: currentPath = $page.url.pathname;
@@ -13,8 +14,6 @@
     $: coverName = '';
 
     onMount(async () => {
-        console.log('ref', ref)
-
         if (!ref || ref === null) {
             ref = localStorage.getItem('guest');
             to = 'Kepada Bapak/Ibu/Saudara/i';
@@ -22,6 +21,11 @@
             await setUser();
         } else {
             await setUser();
+            $authStore.loading = false;
+        }
+
+        if (currentPath !== '/' && (localStorage.getItem('guest') === null) || localStorage.getItem('guest') === undefined) {
+            await goto('/');
         }
     });
 
@@ -29,7 +33,7 @@
         const docRef = doc(db, "invited_guests", ref ? ref : 'Default');
 
         const docSnap = await getDoc(docRef);
-        if (docSnap.data()) {
+        if (docSnap.data() && ref && ref !== null) {
             const user = docSnap.data();
             if (user.grup) {
                 to = 'Kepada Bapak/Ibu/Saudara/i';
@@ -58,7 +62,7 @@
                 }));
             }, 500)
         } else {
-            if (ref) {
+            if (ref || ref !== null) {
                 localStorage.removeItem('guest');
             }
 

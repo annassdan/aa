@@ -59,7 +59,7 @@
 
 </script>
 
-<div in:slide={{duration: 500, delay: 300 }} out:blur={{duration: 300}} class="relative px-4 pt-6 pb-24 flex flex-col items-center h-full bg-gradient-to-b from-wedding-200 to-white text-wedding-600 gap-3 text-sm">
+<div in:blur={{duration: 300, delay: 300 }} out:slide={{duration: 300}} class="relative px-4 pt-6 pb-24 flex flex-col items-center h-full bg-gradient-to-b from-wedding-200 to-white text-wedding-600 gap-3 text-sm">
     <img src="../flower2-left-top.png" alt="Flower Right" class="absolute left-0 top-9 w-[55%] max-w-80 "/>
 
     <div class="flex  max-w-[50rem] flex-row items-center justify-between text-pink-700 z-10 w-full sticky">

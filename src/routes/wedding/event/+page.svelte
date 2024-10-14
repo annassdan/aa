@@ -18,7 +18,7 @@
     $: value = false;
     $: person = value ? '1 Orang' : '';
     $: loadingUpdateRsvp = false;
-
+    $: showGreeting = false;
 
     onMount(() => {
         authStore.update(u => ({...u, currentPath: currentPath}));
@@ -89,6 +89,7 @@
     }
 
     async function updateRsvp() {
+
         loadingUpdateRsvp = true;
         const user = {
             ...$authStore.user,
@@ -116,18 +117,19 @@
                 }
             }));
         }
-
+        showGreeting = $authStore.user.attend;
         loadingUpdateRsvp = false;
+        setTimeout(() => showGreeting = false, 1500);
     }
 </script>
 
-<div in:slide={{duration: 500, delay: 300 }} out:blur={{duration: 300}} class=" relative px-5 pt-4 flex flex-col items-center h-full bg-gradient-to-b from-wedding-200 to-pink-100 text-wedding-600 gap-5 text-sm">
+<div in:blur={{duration: 300, delay: 300 }} out:slide={{duration: 300}} class=" relative px-5 pt-4 flex flex-col items-center h-full bg-gradient-to-b from-wedding-200 to-pink-100 text-wedding-600 gap-5 text-sm">
     {#if showRsvp}
         <div on:click={closeRsvp}
              class="absolute flex flex-col p-3 border border-gray-300 z-40 top-0 opacity-80 bg-gray-700  w-full h-full ">
         </div>
-        <div class="absolute flex flex-col max-w-[50rem] self-center py-3 w-[80%] gap-3 px-4 items-center rounded-xl border border-gray-300 z-50 top-0 bg-gray-100 top-[10%] ">
-            <div class="flex flex-col justify-center items-start gap-2 pr-2 w-full">
+        <div in:blur out:slide class="absolute flex flex-col max-w-[50rem] self-center py-3 w-[80%] gap-3 px-4 items-center rounded-xl border border-gray-300 z-50 top-0 bg-gray-100 top-[10%] ">
+            <div class=" relative flex flex-col justify-center items-start gap-2 pr-2 w-full">
                 <span class="font-bold text-lg">Konfirmasi kehadiran</span>
                 <div class="flex flex-row items-center gap-3 mt-3">
                     <span class="icon-[icon-park-solid--people] w-11 h-6"></span>
@@ -148,8 +150,8 @@
                            class="flex-grow w-full outline-wedding-500 bg-wedding-50 border border-wedding-300 text-wedding-700 placeholder-wedding-300  text-sm rounded-lg focus:ring-wedding-500 focus:border-wedding-500 block w-full p-2.5"
                            placeholder="Jumlah kehadiran...">
                 </div>
-                <div class="flex flex-row justify-end w-full gap-2 pt-1 pb-2">
-                    <div class="flex flex-row gap-2">
+                <div class="flex flex-col items-end w-full gap-2 pt-1">
+                    <div class="flex flex-row gap-3">
                         {#if $authStore.user.attend}
                             <a href="#"
                                class="w-fit rounded-full justify-center text-sm text-center text-white bg-gray-500 hover:bg-pink-800  focus:ring-4 focus:outline-none focus:ring-pink-300 ">
@@ -170,7 +172,20 @@
                                 {/if}
                             </div>
                         </a>
+
+
                     </div>
+
+                    {#if showGreeting && $authStore.user.attend}
+                        <div in:blur out:slide class="justify-center items-center mt-4 mb-1 w-full flex flex-row gap-2 text-xs text-pink-800" >
+                            <span class="font-bold">Terima kasih atas kesempatannya</span>
+                            <span class="icon-[fluent-emoji--party-popper] w-6 h-6"></span>
+                            <span class="icon-[fluent-emoji-flat--partying-face] w-6 h-6"></span>
+                        </div>
+                    {/if}
+
+
+
 
                 </div>
 
