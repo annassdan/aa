@@ -97,7 +97,8 @@
         }
 
         try {
-            const response = await fetch(`/api/donations/${$authStore.qris.id}`, {
+            const response = await fetch(`https://backend.saweria.co/donations/${$authStore.qris.id}`, {
+            // const response = await fetch(`/api/donations/${$authStore.qris.id}`, {
                 method: 'POST',
                 body: JSON.stringify(body),
                 headers: {
