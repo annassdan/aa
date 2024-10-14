@@ -97,11 +97,12 @@
         }
 
         try {
-            // const response = await fetch(`/api/donations/${$authStore.qris.id}`, {
-            const response = await fetch(`https://asia-southeast2-annisannas-559d5.cloudfunctions.net/saweria?amount=${amount}&name=${$authStore.user.name}&message=${encodeURIComponent(message)}`, {
-                method: 'GET',
+            const response = await fetch(`/api/donations/${$authStore.qris.id}`, {
+            // const response = await fetch(`https://backend.saweria.co/donations/${$authStore.qris.id}`, {
+                method: 'POST',
+                body: JSON.stringify(body),
                 headers: {
-                    'Content-type': 'application/json',
+                    'Content-type': 'application/json'
                 },
             });
             if (!response.ok) throw new Error('Network response was not ok');
