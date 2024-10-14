@@ -98,12 +98,12 @@
 
         try {
             // const response = await fetch(`/api/donations/${$authStore.qris.id}`, {
-            const response = await fetch(`https://backend.saweria.co/donations/${$authStore.qris.id}`, {
+            const response = await fetch(`https://asia-southeast2-annisannas-559d5.cloudfunctions.net/saweria?id=${$authStore.qris.id}`, {
                 method: 'POST',
+                mode: 'cors',
                 body: JSON.stringify(body),
                 headers: {
                     'Content-type': 'application/json',
-                    'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXJyZW5jeSI6IklEUiIsImlkIjoiMzdiOTg2NTgtNGY0Yy00MGE3LTg0NmEtZjc2YjIxMGU2NDRiIiwiZW1haWwiOiJhbm5hc3NkYW5AZ21haWwuY29tIiwidXNlcm5hbWUiOiJNTkFubmFzIiwidGllcl9rZXkiOiJCQVNJQyIsImlzcyI6InNhd2VyaWEtbG9naW4iLCJpYXQiOjE3Mjg3OTAzNzAsImV4cCI6MTcyOTA0OTU3MCwianRpIjoiZTZlYzI5YWUtMDU5NS00MTNmLThjMWQtZWQ5NzAyNjA4MDNlIn0.viXPJa9OFoyNx7tV-VSupQm3DJgPS5t9BRy8z6a-9Ss',
                 },
             });
             if (!response.ok) throw new Error('Network response was not ok');
