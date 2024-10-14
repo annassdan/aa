@@ -5,8 +5,6 @@ export async function POST({ params, request, fetch }) {
     const { id } = params;
     try {
         const body = await request.json();
-        console.log('sdsdsdsd')
-
         const response = await fetch(`https://backend.saweria.co/donations/${id}`, {
             method: 'POST',
             headers: {
@@ -18,6 +16,8 @@ export async function POST({ params, request, fetch }) {
         });
 
         if (!response.ok) {
+            console.error(response);
+            console.error(await response.json())
             throw error(response.status, 'Failed to post data to Saweria');
         }
 
