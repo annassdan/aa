@@ -89,7 +89,7 @@
 </script>
 
 <svelte:head>
-    <title>Selamat Datang</title>
+    <title>Anis & Annas</title>
 </svelte:head>
 
 <div out:slide={{duration: 1000 }}

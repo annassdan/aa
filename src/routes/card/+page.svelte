@@ -24,7 +24,7 @@
 </script>
 
 <svelte:head>
-    <title>Kartu Undangan</title>
+    <title>Kartu Undangan & Souvenir</title>
 </svelte:head>
 
 <div out:slide={{duration: 1000 }}
