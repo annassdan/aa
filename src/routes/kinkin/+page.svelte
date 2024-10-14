@@ -78,6 +78,10 @@
 
 </script>
 
+<svelte:head>
+    <title>KinKin</title>
+</svelte:head>
+
 <div out:fade={{duration: 600 }}
      class="relative flex px-3 flex-col justify-start pt-10 gap-4 items-center h-full bg-gradient-to-b from-wedding-200 to-pink-100 pb-10">
 

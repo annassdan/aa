@@ -88,6 +88,10 @@
 
 </script>
 
+<svelte:head>
+    <title>Selamat Datang</title>
+</svelte:head>
+
 <div out:slide={{duration: 1000 }}
      class="relative flex px-3 flex-col justify-center items-center h-full bg-gradient-to-b from-wedding-200 to-pink-100 pb-10">
 

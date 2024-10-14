@@ -163,6 +163,11 @@
     }
 
 </script>
+
+<svelte:head>
+    <title>Hadiah</title>
+</svelte:head>
+
 <div in:blur={{duration: 300, delay: 300 }} out:slide={{duration: 300}} class="relative w-full  px-5 pt-8 pb-24 flex flex-col items-center h-full bg-gradient-to-t from-wedding-200 to-pink-100 text-wedding-600 gap-3  text-sm">
     {#if showQrisCode && $authStore.qris.string}
         <div on:click={closeQris}

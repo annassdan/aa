@@ -19,6 +19,10 @@
 
 </script>
 
+<svelte:head>
+    <title>Pasangan</title>
+</svelte:head>
+
 <div in:blur={{duration: 300, delay: 300 }} out:slide={{duration: 300}} class="flex flex-col items-center h-full bg-gradient-to-t from-wedding-200 to-pink-100 text-wedding-600 gap-5 text-sm">
     <div class=" w-full flex flex-col items-center mt-2 gap-1 px-4 ">
         <img src="../bismillah.png" alt="Bismillah" class="w-[40%] max-w-80"/>
