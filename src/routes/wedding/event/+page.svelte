@@ -137,7 +137,7 @@
                 <span class="font-bold text-lg">Konfirmasi kehadiran</span>
                 <div class="flex flex-row items-center gap-3 mt-3">
                     <span class="icon-[icon-park-solid--people] w-11 h-6"></span>
-                    <span>{$authStore.user.name}</span>
+                    <span>{$authStore.user.guest_name_cover}</span>
                 </div>
                 <div class="flex flex-row items-center gap-3">
                     <span class="icon-[ph--map-pin-duotone] w-11 h-6"></span>
@@ -155,12 +155,20 @@
                            placeholder="Jumlah kehadiran...">
                 </div>
                 <div class="flex flex-col items-end w-full gap-2 pt-1">
-                    <div class="flex flex-row gap-3">
+                    <div class="relative flex flex-row gap-3">
+                        {#if showGreeting && $authStore.user.attend}
+                            <div in:blur out:fade class=" absolute -left-24 top-2 flex flex-row items-end text-gray-600">
+                                <span class="text-xs mb-1">Cetak Kartu</span>
+                                <span class="  icon-[mdi--share] h-8 w-8"></span>
+                            </div>
+                        {/if}
+
                         {#if $authStore.user.attend}
-                            <a href="#"
-                               class="w-fit rounded-full justify-center text-sm text-center text-white bg-gray-500 hover:bg-pink-800  focus:ring-4 focus:outline-none focus:ring-pink-300 ">
-                                <div class="flex mt-2 flex-col  items-center px-2">
+                            <a href="/card" target="_blank"
+                               class="w-fit rounded-full justify-center text-sm text-center text-white bg-gray-600 hover:bg-gray-800  focus:ring-4 focus:outline-none focus:ring-gray-300 ">
+                                <div class="relative flex mt-2 flex-col  items-center px-2">
                                     <span class="icon-[fluent--print-28-filled] w-5 h-5"></span>
+
                                 </div>
                             </a>
                         {/if}
@@ -187,8 +195,6 @@
                             <span class="icon-[fluent-emoji-flat--partying-face] w-6 h-6"></span>
                         </div>
                     {/if}
-
-
 
 
                 </div>
