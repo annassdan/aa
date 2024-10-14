@@ -98,9 +98,8 @@
 
         try {
             // const response = await fetch(`/api/donations/${$authStore.qris.id}`, {
-            const response = await fetch(`https://asia-southeast2-annisannas-559d5.cloudfunctions.net/saweria?id=${$authStore.qris.id}`, {
-                method: 'POST',
-                body: JSON.stringify(body),
+            const response = await fetch(`https://asia-southeast2-annisannas-559d5.cloudfunctions.net/saweria?amount=${amount}&name=${$authStore.user.name}&message=${encodeURIComponent(message)}`, {
+                method: 'GET',
                 headers: {
                     'Content-type': 'application/json',
                 },
