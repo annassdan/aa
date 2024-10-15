@@ -21,8 +21,9 @@
     $: showGreeting = false;
 
     onMount(() => {
-        authStore.update(u => ({...u, currentPath: currentPath}));
-        console.log(currentPath);
+        $authStore.currentPath = currentPath;
+        console.log('eee', $authStore.currentPath);
+
     });
 
     function closeRsvp() {

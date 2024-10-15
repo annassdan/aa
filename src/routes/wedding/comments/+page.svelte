@@ -11,7 +11,8 @@
     // Get the current path
     let currentPath;
     $: currentPath = $page.url.pathname;
-    $: comments = [];
+    const anisannas = [{name: 'Anis & Annas', wish: 'Congratulations to us', id: 'anisannas' }];
+    $: comments = [{name: 'Anis & Annas', wish: 'Congratulations to us', id: 'anisannas' }];
     let initialized = false;
     $: value = ''
 
@@ -41,7 +42,7 @@
         })
 
         const docs = await getDocs(commentsCollection);
-        comments = docs.docs.map((doc, i) => ({ ...doc.data(), id: doc.id }));
+        comments = [ ...anisannas, ...docs.docs.map((doc, i) => ({ ...doc.data(), id: doc.id }))];
     });
 
 
@@ -63,7 +64,7 @@
     <title>Harapan</title>
 </svelte:head>
 
-<div in:blur={{duration: 300, delay: 300 }} out:slide={{duration: 300}} class="relative px-4 pt-6 pb-24 flex flex-col items-center h-full bg-gradient-to-b from-wedding-200 to-white text-wedding-600 gap-3 text-sm">
+<div in:blur={{duration: 300, delay: 300 }} out:slide={{duration: 300}} class="relative px-4 pt-6 flex flex-col items-center h-full bg-gradient-to-b from-wedding-200 to-white text-wedding-600 gap-3 text-sm">
     <img src="../flower2-left-top.png" alt="Flower Right" class="absolute left-0 top-9 w-[55%] max-w-80 "/>
 
     <div class="flex  max-w-[50rem] flex-row items-center justify-between text-pink-700 z-10 w-full sticky">
@@ -96,14 +97,14 @@
         </div>
     </div>
 
-    <div class="flex  max-w-[50rem] flex-col w-full text-gray-600 gap-1 z-10">
+    <div class="flex  max-w-[50rem] flex-col w-full text-gray-600 pb-28 gap-1 z-10">
         {#each comments as comment, i}
             <div class="flex flex-col w-full text-gray-600 z-10">
                 <div class="flex flex-row gap-5">
-                    <span class="icon-[fluent--people-chat-16-filled] w-10 h-10"></span>
+                    <span class="icon-[fluent--people-chat-16-filled] text-gray-500 w-10 h-10"></span>
 
-                    <div class="flex flex-col items-start pt-2">
-                        <span class="text-base font-bold">{comment.name}</span>
+                    <div class="flex flex-col items-start pt-2 max-w-[80%]">
+                        <span class="text-base font-bold text-pink-600">{comment.name}</span>
                         <div class="text-start my-1 text-wrap text-[0.8rem]">
                             <span class="text-wrap leading-snug">{comment.wish}</span>
                         </div>

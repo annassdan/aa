@@ -1,16 +1,11 @@
 <script>
     import {onMount} from "svelte";
-    import {getDocs, collection, doc} from "firebase/firestore";
-    import {db} from "$lib/firebase";
     import {page} from '$app/stores';
     import {authStore} from "../../../store/store.js";
     import Qris from "../../../components/Qris.svelte";
     import ShopeePay from "../../../components/ShopeePay.svelte";
     import Bca from "../../../components/Bca.svelte";
-    import QRCode from '@castlenine/svelte-qrcode';
-    import { fade, scale, slide, fly, blur } from "svelte/transition"
-    import { flip } from "svelte/animate"
-    import { goto } from "$app/navigation"
+    import { fade, scale, slide, fly, blur } from "svelte/transition";
 
     // Get the current path
     $: currentPath = $page.url.pathname;
@@ -22,6 +17,12 @@
     let copied = false;
     let copiedMessage = '';
     let bgCopiedMessage = '';
+
+    onMount(() => {
+        $authStore.currentPath = currentPath;
+        console.log('ddd', currentPath);
+        // authStore.update(u => ({...u, currentPath: currentPath}));
+    });
 
     function formatCurrency(event) {
         let input = event.target.value.replace(/[^0-9.]/g, '');
@@ -62,9 +63,7 @@
         return isNaN(parsed) ? 0 : parsed
     }
 
-    onMount(() => {
-        authStore.update(u => ({...u, currentPath: currentPath}));
-    });
+
 
     async function qris() {
         if (isNominalEmpty()) {
@@ -168,7 +167,7 @@
     <title>Hadiah</title>
 </svelte:head>
 
-<div in:blur={{duration: 300, delay: 300 }} out:slide={{duration: 300}} class="relative w-full  px-5 pt-8 pb-24 flex flex-col items-center h-full bg-gradient-to-t from-wedding-200 to-pink-100 text-wedding-600 gap-3  text-sm">
+<div in:blur={{duration: 300, delay: 300 }} out:slide={{duration: 300}} class="relative w-full  px-5 pt-8 flex flex-col items-center h-full bg-gradient-to-t from-wedding-200 to-pink-100 text-wedding-600 gap-2  text-sm">
     {#if showQrisCode && $authStore.qris.string}
         <div on:click={closeQris}
              class="absolute  flex flex-col p-3 border border-gray-300 z-40 top-0 opacity-80 bg-gray-700  w-full h-full">
@@ -200,14 +199,13 @@
         </div>
     {/if}
 
-
     <div class="flex flex-row justify-center item-center items-center gap-3 w-full text-wedding-500 -mt-5">
         <span class="icon-[fa--gift] w-16 h-16"></span>
         <h2 class="text-sm font-semibold mt-1">Tanpa mengurangi rasa hormat, bagi anda yang ingin memberikan tanda kasih
             untuk mempelai dapat melalui:</h2>
     </div>
 
-    <div class="relative max-w-[50rem] w-full pt-5 pb-3 px-4 bg-wedding-100  border border-wedding-200 rounded-lg  flex gap-3 flex-col ">
+    <div class="relative max-w-[50rem] w-full pt-4 pb-3 px-4 bg-wedding-100  border border-wedding-200 rounded-lg  flex gap-3 flex-col ">
         {#if generateQris}
             <div class="absolute flex flex-col w-full items-center justify-center h-full bg-gray-100 opacity-80 top-0 left-0 rounded-lg z-30">
                 <span class="font-bold text-pink-700 ">Sedang membuat kode QRIS...</span>
@@ -295,4 +293,5 @@
         </div>
 
     </div>
+
 </div>
