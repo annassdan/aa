@@ -64,6 +64,7 @@
                     ...user,
                     title: to,
                     coverName,
+                    id: docSnap.id,
                 }
             }));
 

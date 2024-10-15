@@ -37,6 +37,7 @@
         loadingRsvp = true;
         const docRef = doc(db, "invited_guests", $authStore.user.id ? $authStore.user.id : 'Default');
         const docSnap = await getDoc(docRef);
+        console.log()
         if (!docSnap.data() || docSnap.data() === null) {
             loadingRsvp = false;
         } else {
@@ -44,7 +45,8 @@
                 ...u,
                 user: {
                     ...u.user,
-                    ...docSnap.data()
+                    ...docSnap.data(),
+                    id: docSnap.id,
                 }
             }));
             value = docSnap.data().attend;
