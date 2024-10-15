@@ -249,7 +249,7 @@
 
             <div class="flex gap-2 items-center">
                 <a href="#" on:click={openRsvp}
-                   class="px-3 py-1 mr-1 rounded-lg flex flex-col justify-center hover:bg-wedding-600 items-center text-sm text-center text-white bg-wedding-500  focus:ring-4 focus:outline-none focus:ring-wedding-300 ">
+                   class="px-3 py-1 mr-1 rounded-lg flex flex-col justify-center hover:bg-pink-800 items-center text-sm text-center text-white bg-pink-700  focus:ring-4 focus:outline-none focus:ring-pink-300 ">
                     <div class="flex flex-row items-center gap-2">
                         <!--                        <span class="icon-[fluent-emoji-high-contrast&#45;&#45;party-popper] w-4 h-4"></span>-->
                         <span>RSVP</span>
