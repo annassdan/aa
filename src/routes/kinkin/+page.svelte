@@ -4,6 +4,7 @@
     import {authStore} from "../../store/store.js";
     import {collection, getDocs, onSnapshot} from "firebase/firestore";
     import {db} from "$lib/firebase.js";
+    import {goto} from "$app/navigation";
 
     $: comments = [];
     let initialized = false;
@@ -76,6 +77,11 @@
         }
     }
 
+    function preview(comment) {
+        const url = `https://anisannas.com/?ref=${comment.code}`;
+        window.open(url, '_blank');
+    }
+
 </script>
 
 <svelte:head>
@@ -128,6 +134,7 @@
                             <span class="icon-[iconamoon--copy-fill] h-5 w-5"></span>
                         </div>
                     </a>
+                    <a href="#" on:click={preview(comment)}>Preview</a>
                 </div>
 
                 <a href="#" on:click={() => share(comment.id, comment.name, comment.grup)}
