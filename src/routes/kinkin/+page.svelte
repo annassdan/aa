@@ -83,21 +83,20 @@
         if (navigator.share) {
             navigator.share({
                 title: 'Pernikahan Anis & Annas',
-                text: `Kepada Yth.\n
-${comment.guest_name_cover}\n
-\n
-Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara kami.\n
-\n
-Berikut link undangan kami, untuk info lengkap dari acara bisa kunjungi :\n
-${url}\n\n
-Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.\n
-\n
-Mohon maaf perihal undangan hanya di bagikan melalui pesan ini.\n
-\n
-Jika berkenan mohon untuk mengisi ucapan dan konfirmasi kehadiran di RSVP Acara untuk berkenan hadir/tidak , serta datang pada jam yang telah ditentukan.\n
-\n
-Terima kasih banyak atas perhatiannya\n`,
-                url: url,
+                text: `Kepada Yth.
+${comment.guest_name_cover}
+
+Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara kami.
+
+Berikut link undangan kami, untuk info lengkap dari acara bisa kunjungi :
+${url}
+Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.
+
+Mohon maaf perihal undangan hanya di bagikan melalui pesan ini.
+
+Jika berkenan mohon untuk mengisi ucapan dan konfirmasi kehadiran di RSVP Acara untuk berkenan hadir/tidak , serta datang pada jam yang telah ditentukan.
+
+Terima kasih banyak atas perhatiannya`
             }).then(() => console.log('Content shared successfully!'))
                 .catch((error) => console.error('Error sharing content:', error));
 
