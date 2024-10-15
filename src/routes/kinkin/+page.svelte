@@ -178,7 +178,7 @@ Terima kasih banyak atas perhatiannya`
                     </div>
                 </a>
                 <a href="#" on:click={() => share(comment.id, comment.name, comment.grup)}
-                   class="w-fit  focus:outline-none text-white bg-wedding-700 hover:bg-wedding-800 focus:ring-4 focus:ring-wedding-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-wedding-600 dark:hover:bg-wedding-700 ">
+                   class="w-fit ml-1 focus:outline-none text-white bg-wedding-700 hover:bg-wedding-800 focus:ring-4 focus:ring-wedding-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-wedding-600 dark:hover:bg-wedding-700 ">
                     <div class="flex flex-row justify-between gap-2">
                     <span>
                         Bagikan
