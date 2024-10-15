@@ -77,9 +77,10 @@
         }
     }
 
-    function preview(comment) {
-        const url = `https://anisannas.com/?ref=${comment.code}`;
-        window.open(url, '_blank');
+    function preview(code) {
+        const url = `https://anisannas.com/?ref=${code}`;
+        console.log(url)
+        // window.open(url, '_blank');
     }
 
 </script>
@@ -115,7 +116,7 @@
                 <div class="flex-grow">{comment.many ? comment.many : 'Belum mengkonfirmasi untuk hadir'}</div>
             </div>
             <div class="flex flex-row justify-between mt-3">
-                <div class="flex gap-1">
+                <div class="flex flex-row gap-1 items-center ">
                     <a href="#" on:click={() => copyCode(comment.id)}
                        class="w-fit focus:outline-none text-white bg-gray-600 hover:bg-gray-700 focus:ring-4 focus:ring-gray-400 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-wedding-600 dark:hover:bg-wedding-700 ">
                         <div class="flex flex-row justify-between gap-2">
@@ -134,7 +135,7 @@
                             <span class="icon-[iconamoon--copy-fill] h-5 w-5"></span>
                         </div>
                     </a>
-                    <a href="#" on:click={preview(comment)}>Preview</a>
+                    <a href="#" on:click={preview(comment.id)}>Preview</a>
                 </div>
 
                 <a href="#" on:click={() => share(comment.id, comment.name, comment.grup)}
