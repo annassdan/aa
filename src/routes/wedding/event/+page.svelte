@@ -130,7 +130,7 @@
 </svelte:head>
 
 <div in:blur={{duration: 300, delay: 300 }} out:slide={{duration: 300}} class=" relative px-5 pt-4 pb-24 flex flex-col items-center h-full bg-gradient-to-b from-wedding-200 to-pink-100 text-wedding-600 gap-5 text-sm">
-    <img src="../flower2-left.png" alt="Right Flower" class="absolute w-[40%] -right-5 -top-16 max-w-52"/>
+    <img src="../flower2-left.png" alt="Right Flower" class="absolute w-[38%] right-0 -top-16 max-w-48 z-10"/>
     {#if showRsvp}
         <div on:click={closeRsvp}
              class="absolute flex flex-col p-3 border border-gray-300 z-40 top-0 opacity-80 bg-gray-700  w-full h-full ">
