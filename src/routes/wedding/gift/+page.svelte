@@ -6,6 +6,7 @@
     import ShopeePay from "../../../components/ShopeePay.svelte";
     import Bca from "../../../components/Bca.svelte";
     import { fade, scale, slide, fly, blur } from "svelte/transition";
+    import QRCode from '@castlenine/svelte-qrcode';
 
     // Get the current path
     $: currentPath = $page.url.pathname;
