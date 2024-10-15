@@ -44,8 +44,6 @@
     async function setUser(ref) {
         const docRef = doc(db, "invited_guests", ref ? ref : 'Default');
 
-        console.log('sads')
-
         const docSnap = await getDoc(docRef);
         if (docSnap.data()) {
             const user = docSnap.data();
@@ -56,7 +54,7 @@
             }
 
             coverName = user.guest_name_cover ? user.guest_name_cover : user.name;
-            console.log(user);
+
             authStore.update((u) => ({
                 ...u,
                 user: {

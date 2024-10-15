@@ -15,7 +15,6 @@
 
     onMount(() => {
         authStore.update(u => ({ ...u, currentPath: currentPath }));
-        console.log(currentPath);
     })
 
     let timeLeft = {

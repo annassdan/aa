@@ -15,7 +15,7 @@
 
     onMount(() => {
         code = ($authStore.user.id && $authStore.user.id !== null) ? $authStore.user.id : localStorage.getItem('guest');
-        console.log(code);
+
         setTimeout(() => {
             window.print();
         }, 1000)
