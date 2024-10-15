@@ -36,7 +36,7 @@
         if (docSnap.data() && ref && ref !== null) {
             const user = docSnap.data();
             if (user.grup) {
-                to = 'Kepada Bapak/Ibu/Saudara/i';
+                to = 'Keluarga Besar';
             } else {
                 to = 'Kepada';
             }
@@ -45,10 +45,9 @@
             authStore.update((u) => ({
                 ...u,
                 user: {
-                    id: ref,
-                    name: user.name,
+                    ...u,
+                    ...user,
                     title: to,
-                    attend: user.attend,
                     coverName,
                 }
             }));
