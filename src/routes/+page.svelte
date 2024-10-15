@@ -132,7 +132,7 @@
         </div>
     {/if}
 
-    <img src="aa.png" alt="Anis Annas" class="w-[39%] max-w-80"/>
+    <img src="aa.png" alt="Anis Annas" class="w-[39%] max-w-60"/>
     <span class=" text-xl text-wedding-600 pt-4 font-bold">Pernikahan</span>
     <span class="font-lobster font-bold text-4xl text-pink-600 pt-4 pb-6">Anis & Annas</span>
     <span class=" text-wedding-600 pt-2 text-sm ">{$authStore.user.title}</span>

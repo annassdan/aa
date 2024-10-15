@@ -62,9 +62,9 @@
 <div in:blur={{duration: 300, delay: 300 }} out:slide={{duration: 300}} class="flex flex-col  items-center h-full bg-gradient-to-t from-wedding-200 to-pink-100">
     <img src="../flower-top-left.png" alt="Flower Left" class="absolute left-0 top-0 w-[35%]  "/>
     <img src="../flower-top-right.png" alt="Flower Right" class="absolute right-0 top-[50%] w-[35%]"/>
-    <img src="../aa.png" alt="Anis Annas" class="w-[35%] mt-[7%] max-w-60"/>
+    <img src="../aa.png" alt="Anis Annas" class="w-[35%] mt-[7%] max-w-40"/>
     <span class=" text-xl text-wedding-600 pt-4 font-bold">Pernikahan</span>
-    <span class="font-lobster font-bold text-4xl text-wedding-600 mt-3 z-10">Anis & Annas</span>
+    <span class="font-lobster font-bold text-4xl text-wedding-600 mt-2 z-10">Anis & Annas</span>
 
     <div class="absolute w-full flex flex-col bottom-24 px-6 gap-3 items-center z-10">
         <span class="text-wedding-600 text-lg  bottom-[10%] font-bold">Senin, 28 Oktober 2024</span>
@@ -89,7 +89,7 @@
         </div>
 
 
-        <a href={addToCalendar()} target="_blank" class="bottom-[2%] focus:outline-none mt-1 text-white bg-wedding-700 hover:bg-wedding-800 focus:ring-4 focus:ring-wedding-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-wedding-600 dark:hover:bg-wedding-700 dark:focus:ring-wedding-800">
+        <a href={addToCalendar()} target="_blank" class="bottom-[1%] focus:outline-none mt-1 text-white bg-wedding-700 hover:bg-wedding-800 focus:ring-4 focus:ring-wedding-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-wedding-600 dark:hover:bg-wedding-700 dark:focus:ring-wedding-800">
             <div class="flex flex-row items-center gap-2">
                 Tambahkan ke kalender
                 <span class="icon-[stash--calendar-solid] w-5 h-5"></span>
