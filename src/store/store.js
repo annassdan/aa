@@ -11,6 +11,7 @@ export const authStore = writable({
         attend: false,
         many: 0,
         address: '',
+        part_of: '',
         guest_name_cover: '',
         title: 'Kepada Bapak/Ibu/Saudara/i',
         coverName: 'Tamu Undangan'

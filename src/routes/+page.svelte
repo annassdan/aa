@@ -44,8 +44,10 @@
     async function setUser(ref) {
         const docRef = doc(db, "invited_guests", ref ? ref : 'Default');
 
+        console.log('sads')
+
         const docSnap = await getDoc(docRef);
-        if (docSnap.data() && ref && ref !== null) {
+        if (docSnap.data()) {
             const user = docSnap.data();
             if (user.grup) {
                 to = 'Keluarga Besar';
@@ -54,13 +56,13 @@
             }
 
             coverName = user.guest_name_cover ? user.guest_name_cover : user.name;
+            console.log(user);
             authStore.update((u) => ({
                 ...u,
                 user: {
-                    id: ref,
-                    name: user.name,
+                    ...u,
+                    ...user,
                     title: to,
-                    attend: user.attend,
                     coverName,
                 }
             }));
@@ -131,9 +133,13 @@
 
     <img src="aa.png" alt="Anis Annas" class="w-[39%] max-w-80"/>
     <span class=" text-xl text-wedding-600 pt-4 font-bold">Pernikahan</span>
-    <span class="font-lobster font-bold text-4xl text-pink-600 py-6">Anis & Annas</span>
-    <span class=" text-wedding-600 pt-2 ">{$authStore.user.title}</span>
-    <span class=" text-wedding-600 font-bold -mt-1">{$authStore.user.coverName}</span>
+    <span class="font-lobster font-bold text-4xl text-pink-600 pt-4 pb-6">Anis & Annas</span>
+    <span class=" text-wedding-600 pt-2 text-sm ">{$authStore.user.title}</span>
+    <span class=" text-wedding-600 font-bold mt-1">{$authStore.user.coverName}</span>
+    {#if $authStore.user.address}
+        <span class=" text-wedding-600 text-xs ">{$authStore.user.address}</span>
+    {/if}
+
     <a href="#" on:click={openInvite}
        class="mt-6 focus:outline-none text-white bg-wedding-700 hover:bg-wedding-800 focus:ring-4 focus:ring-wedding-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-wedding-600 dark:hover:bg-wedding-700 dark:focus:ring-wedding-800">
         <div class="flex flex-row items-center gap-2">

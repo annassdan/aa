@@ -111,6 +111,10 @@
                 <div class="flex-grow">{comment.address ? comment.address : '-'}</div>
             </div>
             <div class="flex flex-row gap-2">
+                <div class="w-20 font-bold">Grup</div>
+                <div class="flex-grow">{comment.part_of ? comment.part_of : '-'}</div>
+            </div>
+            <div class="flex flex-row gap-2">
                 <div class="w-20 font-bold">Kehadiran</div>
                 <div class="flex-grow">{comment.many ? comment.many : 'Belum mengkonfirmasi untuk hadir'}</div>
             </div>
