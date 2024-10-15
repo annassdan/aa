@@ -126,7 +126,7 @@
 </script>
 
 <svelte:head>
-    <title>Acara</title>
+    <title>Acara Utama</title>
 </svelte:head>
 
 <div in:blur={{duration: 300, delay: 300 }} out:slide={{duration: 300}} class=" relative px-5 pt-4 flex flex-col items-center h-full bg-gradient-to-b from-wedding-200 to-pink-100 text-wedding-600 gap-5 text-sm">
