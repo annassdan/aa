@@ -79,8 +79,7 @@
 
     function preview(code) {
         const url = `https://anisannas.com/?ref=${code}`;
-        console.log(url)
-        // window.open(url, '_blank');
+        window.open(url, '_blank');
     }
 
 </script>
