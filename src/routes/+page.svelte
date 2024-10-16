@@ -24,7 +24,7 @@
                 openingInvite = false;
                 value = '';
                 openInvite()
-            }, 600)
+            }, 600);
         } else {
             showAlert = true;
             openingInvite = false;
@@ -37,6 +37,7 @@
         if (noGuest) {
             showInviteCode = true;
         } else {
+            $authStore.play = true;
             goto('/wedding/date');
         }
     }
