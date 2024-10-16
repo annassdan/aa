@@ -1,6 +1,6 @@
 <script>
     import "../app.css";
-    import {onMount} from "svelte";
+    import {onDestroy, onMount} from "svelte";
     import {getDoc, collection, doc} from "firebase/firestore";
     import {db} from "$lib/firebase";
     import {page} from '$app/stores';
@@ -12,6 +12,15 @@
     $: currentPath = $page.url.pathname;
     $: to = '';
     $: coverName = '';
+
+
+    function handleVisibilityChange() {
+        if (document.hidden) {
+            $authStore.play = false;
+        } else {
+            $authStore.play = true;
+        }
+    }
 
     onMount(async () => {
         if (!ref || ref === null) {
@@ -27,7 +36,15 @@
         if ((currentPath !== '/' && currentPath !== '/kinkin') && (localStorage.getItem('guest') === null) || localStorage.getItem('guest') === undefined) {
             await goto('/');
         }
+
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+
     });
+
+    // onDestroy(() => {
+    //     document.removeEventListener('visibilitychange', handleVisibilityChange);
+    // });
 
     async function setUser() {
         const docRef = doc(db, "invited_guests", ref ? ref : 'Default');
@@ -75,9 +92,22 @@
 
 
     }
+
+
+    $: {
+        if ($authStore.play && $authStore.audio) {
+            $authStore.audio.play();
+            $authStore.inviteOpened = true;
+        } else {
+            if ($authStore.audio) {
+                $authStore.audio.pause();
+            }
+        }
+    }
 </script>
 
 <div class="relative w-full h-full relative text-md font-catamaran ">
+    <audio autoplay loop bind:this={$authStore.audio} src="/arigatou.mp3"/>
     {#if $authStore.loading}
         <div out:fade={{duration: 400}} class="absolute w-full h-full bg-gradient-to-b from-wedding-200 to-pink-100 flex flex-col justify-center items-center" style="z-index: 999">
             <span class="font-lobster font-bold text-4xl text-pink-600 py-6">Anis & Annas</span>

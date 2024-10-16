@@ -5,6 +5,7 @@
     import {goto} from "$app/navigation"
     import {doc, getDoc} from "firebase/firestore";
     import {db} from "$lib/firebase.js";
+    import {onMount} from "svelte";
 
     $: noGuest = false;
     $: showInviteCode = false;
@@ -39,6 +40,7 @@
         } else {
             $authStore.play = true;
             goto('/wedding/date');
+            $authStore.inviteOpened = true;
         }
     }
 
@@ -88,6 +90,10 @@
         }
     }
 
+    onMount(() => {
+
+    });
+
 </script>
 
 <svelte:head>
@@ -96,6 +102,7 @@
 
 <div out:slide={{duration: 1000 }}
      class="relative flex px-3 flex-col justify-center items-center h-full bg-gradient-to-b from-wedding-200 to-pink-100 pb-10">
+
 
     {#if showAlert}
         <div class="border max-w-[50rem] border-wedding-500 bg-wedding-400 absolute w-[80%] self-center top-3 p-4 mb-4 text-sm text-white rounded-lg"
@@ -148,8 +155,20 @@
         </div>
     </a>
 
+
     <i class=" text-pink-500 text-xs absolute bottom-5 z-10">* Mohon maaf jika penulisan nama atau gelar tidak
         sesuai</i>
+
+    {#if $authStore.inviteOpened}
+        <div on:click={() => ($authStore.play = !$authStore.play)} class=" absolute text-gray-500 bottom-14">
+            {#if $authStore.play}
+                <span class="icon-[solar--pause-circle-bold-duotone] w-12 h-12 "></span>
+            {:else}
+                <span class="icon-[solar--play-circle-bold-duotone] w-12 h-12 "></span>
+            {/if}
+        </div>
+    {/if}
+
     <img src="flower-right.png" alt="Flower Right" class="absolute right-0 bottom-0 w-[35%]"/>
     <img src="flower-left.png" alt="Flower Left" class="absolute left-0 bottom-0 w-[35%]"/>
 </div>

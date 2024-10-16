@@ -3,7 +3,7 @@
     import {authStore} from "../../store/store.js";
     import {fade, scale, slide} from "svelte/transition"
     import {goto} from "$app/navigation";
-    import {onMount} from "svelte";
+    import {onDestroy, onMount} from "svelte";
 
     $: home = ($authStore.currentPath === '/' || $authStore.currentPath === '/wedding/date' ? 'bg-pink-700 hover:bg-pink-700 focus:ring-pink-300' : 'bg-wedding-400');
     $: couple = ($authStore.currentPath === '/wedding/couple' ? 'bg-pink-700 hover:bg-pink-700 focus:ring-pink-300' : 'bg-wedding-400');
@@ -11,30 +11,25 @@
     $: gift = ($authStore.currentPath === '/wedding/gift' ? 'bg-pink-700 hover:bg-pink-700 focus:ring-pink-300' : 'bg-wedding-400');
     $: comment = ($authStore.currentPath === '/wedding/comments' ? 'bg-pink-700 hover:bg-pink-700 focus:ring-pink-300' : 'bg-wedding-400');
 
-    let audio;
-    let initialized = false;
-
     onMount(() => {
-        console.log($authStore.play)
-    })
+    });
 
     function togglePlay() {
-        if (!initialized) {
+        if (!$authStore.audioInitialized) {
             document.removeEventListener('click', togglePlay);
         }
-
 
         console.log('dsd')
 
         if ($authStore.play) {
-            audio.pause();
+            $authStore.audio.pause();
         } else {
-            audio.play();
+            $authStore.audio.play();
         }
         $authStore.play = !$authStore.play;
 
-        if (!initialized) {
-            initialized = true;
+        if (!$authStore.audioInitialized) {
+            $authStore.audioInitialized = true;
         }
     }
 
@@ -48,7 +43,6 @@
 <div class="w-full h-full relative text-md font-catamaran justify-center">
     <slot></slot>
     <div class="relative bottom-0 w-full flex flex-row items-center justify-center z-40">
-        <audio autoplay loop bind:this={audio} src="/arigatou.mp3"/>
 
         <div in:slide={{delay: 400, duration: 400}}
              class="fixed justify-center  flex flex-col items-center bottom-3 z-50 w-full px-3 max-w-[50rem]">

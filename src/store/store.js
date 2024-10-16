@@ -4,6 +4,9 @@ export const authStore = writable({
     currentPath: '',
     group: true,
     loading: true,
+    audio: undefined,
+    inviteOpened: false,
+    audioInitialized: false,
     play: false,
     user: {
         id: '',
