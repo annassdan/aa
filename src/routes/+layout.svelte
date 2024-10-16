@@ -13,6 +13,17 @@
     $: to = '';
     $: coverName = '';
 
+    $: {
+        if ($authStore.play && $authStore.audio) {
+            $authStore.audio.play();
+            $authStore.inviteOpened = true;
+        } else {
+            if ($authStore.audio) {
+                $authStore.audio.pause();
+            }
+        }
+    }
+
 
     function handleVisibilityChange() {
         if (document.hidden) {
@@ -62,7 +73,7 @@
             authStore.update((u) => ({
                 ...u,
                 user: {
-                    ...u,
+                    ...u.user,
                     ...user,
                     title: to,
                     coverName,
@@ -94,16 +105,7 @@
     }
 
 
-    $: {
-        if ($authStore.play && $authStore.audio) {
-            $authStore.audio.play();
-            $authStore.inviteOpened = true;
-        } else {
-            if ($authStore.audio) {
-                $authStore.audio.pause();
-            }
-        }
-    }
+
 </script>
 
 <div class="relative w-full h-full relative text-md font-catamaran ">

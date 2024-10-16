@@ -61,7 +61,7 @@
             authStore.update((u) => ({
                 ...u,
                 user: {
-                    ...u,
+                    ...u.user,
                     ...user,
                     title: to,
                     coverName,

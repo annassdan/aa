@@ -93,6 +93,7 @@
 
     async function updateRsvp() {
 
+        console.log('adsd')
         loadingUpdateRsvp = true;
         const user = {
             ...$authStore.user,
@@ -100,9 +101,12 @@
             many: value ? person : ''
         };
 
+        console.log($authStore.user)
+
         delete user.id;
         delete user.title;
         delete user.coverName;
+        console.log(user);
 
         let u = await setDoc(doc(collection(db, "invited_guests"), $authStore.user.id), {
             ...user
@@ -116,7 +120,8 @@
                 ...u,
                 user: {
                     ...u.user,
-                    ...docSnap.data()
+                    ...docSnap.data(),
+                    id: docSnap.id
                 }
             }));
         }
