@@ -101,12 +101,10 @@
             many: value ? person : ''
         };
 
-        console.log($authStore.user)
-
         delete user.id;
         delete user.title;
         delete user.coverName;
-        console.log(user);
+        delete user.audio;
 
         let u = await setDoc(doc(collection(db, "invited_guests"), $authStore.user.id), {
             ...user
