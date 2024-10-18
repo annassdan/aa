@@ -41,7 +41,7 @@
                     />
         </div>
         <span class=" text-wedding-600 mt-4 z-40 ">{$authStore.user.title}</span>
-        <span class=" text-wedding-600 font-bold z-40 -mt-1">{$authStore.user.coverName}</span>
+        <span class=" text-wedding-600 font-bold z-40 mt-2">{$authStore.user.coverName}</span>
 
         <img src="flower-right.png" alt="Flower Right" class="absolute right-0 bottom-0 w-[35%]"/>
         <img src="flower-left.png" alt="Flower Left" class="absolute left-0 bottom-0 w-[35%]"/>
