@@ -19,8 +19,6 @@
             document.removeEventListener('click', togglePlay);
         }
 
-        console.log('dsd')
-
         if ($authStore.play) {
             $authStore.audio.pause();
         } else {
@@ -38,7 +36,42 @@
             document.addEventListener('click', togglePlay);
         }
     }
+
+    let startY = 0;
+    let endY = 0;
+
+    function onTouchStart(ev) {
+        startY = ev.touches[0].clientY;
+    }
+
+    function onTouchEnd(ev) {
+        endY = ev.touches[0].clientY;
+    }
+
+    function movePage() {
+        console.log('movePage');
+        if (startY - endY > 0) {
+            to('down')
+        } else {
+            to('up')
+        }
+    }
+
+    function to(direction) {
+        if ($authStore.currentPath === '/wedding/date') {
+            setTimeout(() => direction === 'up' ? goto('/') : goto('/wedding/couple'), 0)
+        } else if ($authStore.currentPath === '/wedding/couple') {
+            setTimeout(() => direction === 'up' ? goto('/wedding/date') : goto('/wedding/event'), 0)
+        } else if ($authStore.currentPath === '/wedding/event') {
+            setTimeout(() => direction === 'up' ? goto('/wedding/couple') : goto('/wedding/gift'), 0)
+        } else if ($authStore.currentPath === '/wedding/gift') {
+            setTimeout(() => direction === 'up' ? goto('/wedding/event') : goto('/wedding/comments'), 0)
+        }
+    }
+
 </script>
+
+<svelte:body on:touchend={movePage} on:touchmove={onTouchEnd} on:touchstart={onTouchStart}></svelte:body>
 
 <div class="w-full h-full relative text-md font-catamaran justify-center">
     <slot></slot>
