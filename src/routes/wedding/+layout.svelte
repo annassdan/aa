@@ -49,11 +49,15 @@
     }
 
     function movePage() {
-        console.log('movePage');
+        const minYmove = 25;
         if (startY - endY > 0) {
-            to('down')
+            if (startY - endY > minYmove) {
+                to('down')
+            }
         } else {
-            to('up')
+            if (endY - startY > minYmove) {
+                to('up')
+            }
         }
     }
 
