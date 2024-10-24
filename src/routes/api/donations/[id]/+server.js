@@ -6,7 +6,7 @@ export async function POST({ params, request, fetch }) {
     try {
         const body = await request.json();
         // const response = await fetch(`https://backend.saweria.co/donations/${id}`, {
-        const response = await fetch(`https://42e2-180-245-150-81.ngrok-free.app/api/donations/${id}`, {
+        const response = await fetch(`https://6a2e-36-82-133-148.ngrok-free.app/api/donations/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

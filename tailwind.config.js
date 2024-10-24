@@ -8,7 +8,8 @@ export default {
     extend: {
       fontFamily: {
         'lobster': ['Lobster', 'sans-serif'],
-        'catamaran': ['Philosopher', 'sans-serif']
+        'catamaran': ['Philosopher', 'sans-serif'],
+        'vibes': ['Great Vibes', 'cursive']
       },
       colors: {
         'wedding': {
