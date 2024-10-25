@@ -28,6 +28,7 @@
 
     function closeRsvp() {
         showRsvp = false;
+        $authStore.onDialog = false;
     }
 
     async function openRsvp() {
@@ -36,6 +37,7 @@
         }
 
         loadingRsvp = true;
+        $authStore.onDialog = true;
         const docRef = doc(db, "invited_guests", $authStore.user.id ? $authStore.user.id : 'Default');
         const docSnap = await getDoc(docRef);
         console.log()

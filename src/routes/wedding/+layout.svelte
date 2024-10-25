@@ -14,6 +14,12 @@
     onMount(() => {
     });
 
+    $: {
+        console.log($authStore.currentPath);
+        endY = 0;
+        startY = 0;
+    }
+
     function togglePlay() {
         if (!$authStore.audioInitialized) {
             document.removeEventListener('click', togglePlay);
@@ -49,7 +55,11 @@
     }
 
     function movePage() {
-        const minYmove = 100;
+        const minYmove = 50;
+        if (endY <= 0 || $authStore.onDialog) {
+            return
+        }
+
         if (startY - endY > 0) {
             if (startY - endY > minYmove) {
                 to('down')
