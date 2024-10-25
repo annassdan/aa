@@ -107,7 +107,6 @@
             });
             if (!response.ok) throw new Error('Network response was not ok');
             const data = await response.json();
-            console.log(data);
 
             authStore.update(u => ({
                 ...u, qris: {
@@ -121,6 +120,7 @@
 
 
             showQrisCode = true;
+            $authStore.onDialog = true;
             value = '';
             message = '';
             generateQris = false;
@@ -156,10 +156,12 @@
 
     function closeQris() {
         showQrisCode = false;
+        $authStore.onDialog = false;
     }
 
     function showRecentQris() {
         showQrisCode = true;
+        $authStore.onDialog = true;
     }
 
 </script>
