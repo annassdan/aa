@@ -49,7 +49,7 @@
     }
 
     function movePage() {
-        const minYmove = 25;
+        const minYmove = 100;
         if (startY - endY > 0) {
             if (startY - endY > minYmove) {
                 to('down')
